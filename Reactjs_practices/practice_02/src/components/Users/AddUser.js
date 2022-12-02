@@ -16,6 +16,9 @@ const AddUser = (props) =>{
     const addUserHandler=(event)=>{
 
         event.preventDefault();
+        console.log(enteredUsername,enteredAge);
+        setEnteredUsername('')
+        setEnteredAge('');
     };
     //don't user addUserHandler() so pointer is used i.e addUserHandler
     const usernameChangeHandler = (event)=>{
@@ -23,15 +26,15 @@ const AddUser = (props) =>{
     };
     const ageChangeHandler =(event)=>{
         setEnteredAge(event.target.value);
-        console.log(enteredUsername,enteredAge);
+        
     };
     return(
         <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
             <label htmlFor="username">Username</label>
-            <input id="username" type="text" onChange={usernameChangeHandler}/>
+            <input id="username" type="text" value={enteredUsername} onChange={usernameChangeHandler}/>
             <label htmlFor="age">Age(Years)</label>
-            <input  id ="age" type="numeber" onChange={ageChangeHandler}/>
+            <input  id ="age" type="numeber"  value={enteredAge} onChange={ageChangeHandler}/>
             <Button type="submit">Add User</Button>
         </form>
         </Card>
